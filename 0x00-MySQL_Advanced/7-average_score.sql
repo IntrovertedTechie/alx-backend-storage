@@ -1,5 +1,8 @@
 -- SQL script to create a stored procedure ComputeAverageScoreForUser
+
+-- Procedure to compute and store the average score for a student
 DELIMITER //
+
 CREATE PROCEDURE ComputeAverageScoreForUser(IN user_id INT)
 BEGIN
     -- Declare variables for sum_score and count_corrections
