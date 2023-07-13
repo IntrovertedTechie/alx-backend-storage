@@ -1,7 +1,4 @@
 -- SQL script to create a stored procedure to ComputeAverageScoreForUser
-DROP PROCEDURE IF EXISTS ComputeAverageScoreForUser;
-DELIMITER //
-
 CREATE PROCEDURE ComputeAverageScoreForUser (user_id INT)
 BEGIN
     -- Calculate the sum of scores and count of corrections for the user
