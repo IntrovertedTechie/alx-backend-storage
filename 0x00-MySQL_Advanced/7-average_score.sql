@@ -1,7 +1,5 @@
 -- SQL script to create a stored procedure ComputeAverageScoreForUser
-
 DELIMITER //
-
 CREATE PROCEDURE ComputeAverageScoreForUser(IN user_id INT)
 BEGIN
     -- Declare variables for sum_score and count_corrections
