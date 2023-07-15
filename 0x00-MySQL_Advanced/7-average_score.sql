@@ -1,4 +1,4 @@
--- SQL script to create a stored procedure to ComputeAverageScoreForUser
+-- SQL script to create a stored procedure to ComputeAverageScoreForUserSQL script that creates and store average score for students
 
 CREATE PROCEDURE ComputeAverageScoreForUser (user_id INT)
 BEGIN
