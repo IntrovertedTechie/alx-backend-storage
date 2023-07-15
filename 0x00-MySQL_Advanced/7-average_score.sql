@@ -1,4 +1,5 @@
 -- SQL script to create a stored procedure to ComputeAverageScoreForUser
+
 CREATE PROCEDURE ComputeAverageScoreForUser (user_id INT)
 BEGIN
     -- Calculate the sum of scores and count of corrections for the user
