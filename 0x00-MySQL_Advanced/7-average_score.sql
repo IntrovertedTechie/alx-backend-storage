@@ -1,4 +1,4 @@
-see-- SQL script to create a stored procedure to ComputeAverageScoreForUserSQL script that creates and store average score for students
+-- SQL script to create a stored procedure to ComputeAverageScoreForUserSQL script that creates and store average score for students
 
 CREATE PROCEDURE ComputeAverageScoreForUser (user_id INT)
 BEGIN
@@ -22,6 +22,6 @@ BEGIN
     UPDATE users
     SET average_score = avg_score
     WHERE id = user_id;
-END $$
+END //
 
 DELIMITER ;
