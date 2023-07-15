@@ -2,24 +2,24 @@
 -- Description: Computes and stores the average score for a student
 -- Input: user_id - a users.id value
 
-DELIMITER //
-
-CREATE PROCEDURE ComputeAverageScoreForUser(IN user_id INT)
+DROP PROCEDURE IF EXISTS ComputeAverageScoreForUser;
+DELIMITER $$
+CREATE PROCEDURE ComputeAverageScoreForUser (user_id INT)
 BEGIN
-    DECLARE total_score FLOAT;
-    DECLARE num_scores INT;
+    DECLARE total_score INT DEFAULT 0;
+    DECLARE projects_count INT DEFAULT 0;
 
-    -- Calculate the total score and the number of scores for the specified user
-    SELECT SUM(score), COUNT(*) INTO total_score, num_scores
-    FROM corrections
-    WHERE user_id = user_id;
+    SELECT SUM(score)
+        INTO total_score
+        FROM corrections
+        WHERE corrections.user_id = user_id;
+    SELECT COUNT(*)
+        INTO projects_count
+        FROM corrections
+        WHERE corrections.user_id = user_id;
 
-    -- Update the average_score column if there are scores available for the user
-    IF num_scores > 0 THEN
-        UPDATE users
-        SET average_score = total_score / num_scores
-        WHERE id = user_id;
-    END IF;
+    UPDATE users
+        SET users.average_score = IF(projects_count = 0, 0, total_score / projects_count)
+        WHERE users.id = user_id;
 END //
-
 DELIMITER ;
